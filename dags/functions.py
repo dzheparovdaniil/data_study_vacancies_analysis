@@ -89,8 +89,9 @@ def main(data):
             data['address.lng'] = 0
       
       df_vacancy = data[['id', 'name', 'area.name', 'experience.name', 'employer.name', 
-       'response_url', 'specializations', 'professional_roles', 'published_at', 'working_days', 'salary.from', 'salary.to', 
+       'response_url', 'specializations', 'professional_roles', 'published_at', 'salary.from', 'salary.to', 
        'salary.gross', 'employment.name', 'address.raw', 'address.city', 'address.lat', 'address.lng', 'alternate_url', 'apply_alternate_url', 'archived']]
+      df_vacancy['working_days'] = ''
       df_skill = data[['id', 'key_skills']]
       df_skill = df_skill.explode('key_skills')
       if df_skill['key_skills'].isna().values[0] == True:
