@@ -20,4 +20,4 @@ jobs:
 
     - name: Copy Files to Server
       run: |
-        scp -r ./dags/functions.py root@94.26.239.237:/home/apache-superset/airflow/dags
+        scp -o StrictHostKeyChecking=no -r ./dags/functions.py root@94.26.239.237:/home/apache-superset/airflow/dags
