@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW vacancies.vacancy_dm AS 
+CREATE OR REPLACE VIEW vacancies.vacancies_dm AS 
 SELECT *
 FROM (
 SELECT 
@@ -39,6 +39,7 @@ CASE
 		OR upper(skill) LIKE('%ANALYSIS%') 
 		OR upper(skill) LIKE('%ANALYTICAL%') 
 		OR upper(skill) LIKE('%ANALYTICS%') 
+		OR upper(skill) LIKE('%АНАЛИТИЧЕСКОЕ МЫШЛЕНИЕ%')
 	THEN 'АНАЛИТИЧЕСКИЕ ИССЛЕДОВАНИЯ'
 	WHEN upper(skill) LIKE('BI %') 
 		OR upper(skill) LIKE('% BI') 
@@ -101,5 +102,6 @@ ON v.id = s.vacancy_id
 ) AS t
 WHERE professional_role_id::integer IN 
 (
-165, 124, 157, 79, 84, 114, 134, 156, 10, 96, 164, 107, 148, 150
+165, 156, 164
 )
+AND area_name NOT IN ('Абакан', 'Алматы', 'Астана', 'Батуми', 'Бишкек', 'Кипр', 'Сербия', 'США', 'Ташкент', 'Тбилиси')
