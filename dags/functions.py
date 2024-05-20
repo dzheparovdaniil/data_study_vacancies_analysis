@@ -90,7 +90,7 @@ def main(data):
       
       df_vacancy = data[['id', 'name', 'area.name', 'experience.name', 'employer.name', 
        'response_url', 'specializations', 'professional_roles', 'published_at', 'salary.from', 'salary.to', 
-       'salary.gross', 'employment.name', 'address.raw', 'address.city', 'address.lat', 'address.lng', 'alternate_url', 'apply_alternate_url', 'archived']]
+       'salary.gross', 'employment.name', 'address.raw', 'address.city', 'address.lat', 'address.lng', 'alternate_url', 'apply_alternate_url', 'archived', 'description']]
       df_vacancy['working_days'] = ''
       df_skill = data[['id', 'key_skills']]
       df_skill = df_skill.explode('key_skills')
@@ -101,7 +101,7 @@ def main(data):
       df_vacancy.columns = df_vacancy.columns.str.replace('.', '_')
       df_vacancy = df_vacancy[['id', 'name', 'area_name', 'experience_name', 'employer_name',
         'response_url', 'specializations', 'professional_roles', 'published_at', 'working_days', 'salary_from', 'salary_to',
-        'salary_gross', 'employment_name', 'address_raw', 'address_city', 'address_lat', 'address_lng', 'alternate_url', 'apply_alternate_url', 'archived']]
+        'salary_gross', 'employment_name', 'address_raw', 'address_city', 'address_lat', 'address_lng', 'alternate_url', 'apply_alternate_url', 'archived', 'description']]
       df_vacancy['load_date'] = datetime.now().strftime('%Y-%m-%d')
       df_vacancy.professional_roles = df_vacancy.professional_roles.astype('string').str.replace('[','{')
       df_vacancy.professional_roles = df_vacancy.professional_roles.astype('string').str.replace(']','}')
